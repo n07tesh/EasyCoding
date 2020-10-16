@@ -1,0 +1,103 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+/*header{
+  width: 100%;
+  height: 100vh;
+ /* background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.1)), url('../img/home.jpg');*/
+ /* background-repeat: no-repeat;
+ 
+}*/
+  
+  main{
+    width: 100%;
+    height: 92vh;
+    background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.1)), url('../img/home.jpg');
+    background-size: cover;
+    /*background-color: rgb(255, 145, 0);*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:white;
+    padding-bottom: 50px;
+}
+section .button{
+    text-align: center;
+    text-decoration: none;
+    color: coral;
+    
+}
+section h3{
+    font-size: 30px;
+    font-weight: 200;
+    letter-spacing:3px ;
+    text-shadow: 1px 1px 2px black;
+    margin-left: 35px;
+    justify-content: center;
+    text-align: center;
+}
+section h1{
+    margin: 30px 0 20px 0;
+    font-size: 55px;
+    font-weight: 700;
+    text-shadow: 2px 1px 5px black;
+    text-transform: uppercase; 
+    text-align: center;
+    justify-content: center;
+}
+section p{
+    font-size: 25px;
+    word-spacing: 2px;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 1px black;
+    justify-content: center;
+    text-align: center;
+    margin-left: 20px;
+}
+   .button1{
+       margin-left: 40px;
+      /* position: fixed;*/
+    text-align: center;
+    background: aqua;
+    color: coral;
+}
+.button2{
+    margin: 20px;
+   /* position: fixed;
+    text-align: center;*/
+    background: coral;
+    color: cyan;
+}
+section a{
+    padding: 12px 30px;
+    border-radius: 4px;
+    outline: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-align: center;
+}
+h1 .change_content:after{
+    content: '';
+    animation: changetext 10s infinite linear;
+    color: coral;
+}
+
+@keyframes changetext{
+  0%{content:"Security"}
+  20%{content:"Data"}
+  35%{content:"Attack"}
+  60%{content:"Information"}
+  80%{content:"Crime"}
+  100%{content:"Cyber"}
+
+}

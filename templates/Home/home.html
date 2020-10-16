@@ -1,6 +1,24 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block title %} Home {% endblock title %}
+
+
 {% block body %}
-<h2>This is heading of home</h2>
+<main>
+<section>
+<link href="{% static "Home/css/home.css" %}" rel="stylesheet">
+<!--<img src="{% static "Home/img/home.jpg"%}"</img>-->
+
+
+<h3>Welcome To EasyCoding</h3>
+<h1>Ethical Hacking - <span class="change_content"></span></h1>
+<p>“I'm not a great programmer; I'm just a good programmer with great habits.”</p>
+<a href="/blog" class="button1" id="btn">Blog</a>
+<a href="/contact" class="button2" id="btn">Contact</a>
+</section>
+</main>
+
+  
 {% endblock body %}

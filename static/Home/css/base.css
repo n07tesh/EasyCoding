@@ -1,0 +1,86 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #444444;
+    background-color: coral;
+  }
+  
+  a {
+    color: #fdc134;
+  }
+  
+  a:hover {
+    color: #fdd067;
+    text-decoration: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway", sans-serif;
+  }
+  
+  /*--------------------------------------------------------------
+  # Back to top button
+  --------------------------------------------------------------*/
+  .back-to-top {
+    position: fixed;
+    display: none;
+    width: 40px;
+    height: 20px;
+    border-radius: 50px;
+    right: 15px;
+    bottom: 15px;
+    background: #284864;
+    color: #fff;
+    transition: display 0.5s ease-in-out;
+    z-index: 99999;
+    transition: all ease-in-out 0.3s;
+  }
+  
+  .back-to-top i {
+    font-size: 24px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+  }
+  
+  .back-to-top:hover {
+    color: #fff;
+    background: #fdc134;
+  }
+  
+  /*--------------------------------------------------------------
+  # Header
+  --------------------------------------------------------------*/
+  /*#header {
+    height: 60px;
+    transition: all 0.5s;
+    z-index: 997;
+    transition: all 0.5s;
+    padding: 16px 0;
+    background: #f88c4d;
+  }*/
+  
+  #header .logo h1 {
+    font-size: 24px;
+    margin: 0;
+    padding: 10px 0;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  #header .logo h1 a, #header .logo h1 a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  #header .logo h1 a span, #header .logo h1 a:hover span {
+    color: #fdc134;
+  }
+  
+  #header .logo img {
+    padding: 0;
+    margin: 0;
+    max-height: 40px;
+  }

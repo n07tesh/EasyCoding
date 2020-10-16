@@ -17,9 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 
+admin.site.site_header = "EasyCoding Admin"
+admin.site.site_title = "EasyCoding Admin Panel"
+admin.site.index_title = "Welcome To EasyCoding Admin Panel"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('Blog.urls',namespace='Blog')),
-    path('',include('Home.urls',namespace='Home')),
+    path('',include('Home.urls')),
+    path('blog/',include('Blog.urls')),
+    path('tinymce/', include('tinymce.urls')),
 ]

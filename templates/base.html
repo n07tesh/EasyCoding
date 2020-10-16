@@ -1,4 +1,5 @@
 <!doctype html>
+{% load static %}
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -7,12 +8,41 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="{%static "Blog/css/blogpost.css"%}"> --> 
+<!-- Template Main CSS File -->
+  <link href="{% static "Home/css/base.css" %}" rel="stylesheet">
+
+<!-- Favicons -->
+  <link href="{% static "Home/img/EasyCoding.png" %}" rel="icon">
+  <link href="{% static "Home/img/EasyCoding.png"%}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+  <link href="{% static "vendor/icofont/icofont.min.css"%}" rel="stylesheet">
+  <link href="{% static "vendor/boxicons/css/boxicons.min.css"%}" rel="stylesheet">
+  <link href="{% static "vendor/owl.carousel/assets/owl.carousel.min.css"%}" rel="stylesheet">
+  <link href="{% static "vendor/venobox/venobox.css"%}" rel="stylesheet">
+  <link href="{% static "vendor/aos/aos.css"%}" rel="stylesheet">
+  <!--<script src="{%static "js/slider.js"%}"></script>-->
+
+  <!-- Template Main CSS File -->
+  <!--<link href="assets/css/style.css" rel="stylesheet">-->
+
 
     <title>{% block title %}{% endblock title %}</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="{% url 'home' %}">EasyCoding</a>
+  <header id="header">
+  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+    <div class="logo mr-auto">
+          <!--<h1 class="text-light">--><img src="{% static "Home/img/EasyCoding.png"%}" alt="EasyCoding"><!--</h1>-->
+          <!-- Uncomment below if you prefer to use an image logo -->
+    </div>
+  <a class="navbar-brand text-dark" href="/">EasyCoding</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -20,27 +50,152 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-dark" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Blog <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-dark " href="/blog">Blog <span class="sr-only">(current)</span></a>
       </li>
      
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'about' %}" >About</a>
+        <a class="nav-link   text-dark" href="/about" >About</a>
       </li>
          <li class="nav-item active">
-        <a class="nav-link" href="{% url 'contact' %}" >Contact</a>
+        <a class="nav-link  text-dark" href="/contact" >Contact</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <div class="ml-auto form-inline">
+
+    <form method="get"action="/search"class=" my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query" id="search">
+      <button class="btn btn-primary m-2 my-sm-0" type="submit">Search</button>
     </form>
+    <!--<a href="/admin" role="button" target="_blank" class="btn btn-outline-success my-2 my-sm-0">Admin Panel</a>-->
+    {% if user.is_authenticated %}
+    <ul class="navbar-nav mr-2">
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Welcome {{request.user}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/logout">LogOut</a>
+          
+        </div>
+      </li>
+      </ul>
+      
+    {% else %}
+
+    <!-- Button to trigger LogIn modal -->
+<button type="button" class="btn btn-primary m-2 my-sm-0" data-toggle="modal" data-target="#LogInModal">
+  LogIn
+</button>
+    <!-- Button to trigger SignUp modal -->
+    <button type="button" class="btn btn-primary m-2 my-sm-0" data-toggle="modal" data-target="#signupModal">
+  SignUp
+</button>
+
+{% endif %}
+</div>
+
   </div>
 </nav>
+</header>
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  <strong>Message: </strong> {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+
+
+
+
+<!--SignUp Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModal">SignUp Here</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action='/signup' method='POST'>
+        {% csrf_token %}
+        <div class="form-group">
+    <label for="username">User Name</label>
+    <input type="text" class="form-control" id="username" name="username"placeholder="username" required>
+  </div>
+  <div class="form-group">
+    <label for="name">First Name</label>
+    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="firstname" required>
+  </div>
+  <div class="form-group">
+    <label for="name">Last Name</label>
+    <input type="text" class="form-control" id="lastname" name="lastname"placeholder="lastname" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="EmailAddress" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+  </div>
+  <div class="form-group">
+    <label for="password1">Password</label>
+    <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter your password again" required>
+  </div>
+  
+        <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--LogIn Modal -->
+<div class="modal fade" id="LogInModal" tabindex="-1" aria-labelledby="LogInModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="LogInModal">LogIn</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action='/login' method='POST'>
+        {% csrf_token %}
+        <div class="form-group">
+    <label for="username">User Name</label>
+    <input type="text" class="form-control" id="loginusername" name="loginusername"placeholder="username" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="loginpassword" name="loginpassword" placeholder="Password" required>
+  </div>
+   <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
 {% block body %}
 {% endblock body %}
+
+{% block js %}
+{% endblock js %}
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

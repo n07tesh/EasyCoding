@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+from django.contrib.messages import constants as messages
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
@@ -41,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Home',
     'Blog',
+    'django.contrib.humanize',
+   # 'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +130,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
+
+MESSAGE_TAGS = {
+    messages.ERROR:'danger'
+}
