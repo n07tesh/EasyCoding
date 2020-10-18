@@ -16,7 +16,7 @@ def BlogPost(request, slug):
     post =  Post.objects.filter(slug=slug).first()
     post.views = post.views + 1
     post.save()
-    comments = BlogComment.objects.filter(post=post)
+    comments = BlogComment.objects.filter(post=post,parent=None)
     replies = BlogComment.objects.filter(post=post).exclude(parent=None)
     replyDict = {}
     for reply in replies:
@@ -38,7 +38,7 @@ def postComment(request):
         postSno = request.POST.get("postSno")
         post = Post.objects.get(sno=postSno)
         parentSno=request.POST.get("parentSno")
-        if parentSno=="":
+        if parentSno =="":
 
             comment = BlogComment(comment=comment, user=user, post=post)
             comment.save()
