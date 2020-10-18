@@ -1,4 +1,0 @@
-python 2.7.15
-Django==3.0.3
-django-tinymce-3.1.0
-pip install -r requirement.txt
