@@ -30,7 +30,7 @@ SECRET_KEY = '4a)p+$8%@-o3rh*+eisxa$-z-fxt_zc=$^d@=+exq=b1r+3p)w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nitesh07.herokuapp.com']
 
 
 # Application definition
