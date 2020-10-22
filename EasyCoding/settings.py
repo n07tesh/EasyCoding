@@ -28,9 +28,9 @@ STATIC_DIR = os.path.join(BASE_DIR,"static")
 SECRET_KEY = '4a)p+$8%@-o3rh*+eisxa$-z-fxt_zc=$^d@=+exq=b1r+3p)w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['nitesh07.herokuapp.com']
+ALLOWED_HOSTS = ['easycodingnitesh.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -136,13 +136,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
-STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
+#PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
+STATIC_ROOT  =   os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 # Extra lookup directories for collectstatic to find static files
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 #  Add configuration for static files storage using whitenoise
