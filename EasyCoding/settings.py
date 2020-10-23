@@ -28,7 +28,7 @@ STATIC_DIR = os.path.join(BASE_DIR,"static")
 SECRET_KEY = '4a)p+$8%@-o3rh*+eisxa$-z-fxt_zc=$^d@=+exq=b1r+3p)w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['easycodingnitesh.herokuapp.com','127.0.0.1']
 
